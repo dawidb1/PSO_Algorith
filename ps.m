@@ -1,8 +1,10 @@
 clear
 close all
 clc
+
+% wyszukiwanie minimum i maksimum dodaæ
 %% Deklaracja agentow
-NUMBER_OF_AGENTS=10;%input('Podaj liczbe agentow: ');
+NUMBER_OF_AGENTS=20;%input('Podaj liczbe agentow: ');
 ITERATIONS=50;%input('Podaj liczbe iteracji: ');
 XMIN=-20;%input('Podaj dolny zakres x: ');
 XMAX=30;%input('Podaj gorny zakres x: ');
@@ -11,7 +13,7 @@ YMIN=XMIN; %ja
 YMAX=XMAX;
 
 VMAX=0.1;%input('Podaj maksymalna poczatkowa predkosc: ');
-WHICH_FUNCTION=5;   % 1 - funkcja z 1 minimum globalnym;
+WHICH_FUNCTION=3;   % 1 - funkcja z 1 minimum globalnym;
                 % 2 - funkcja z 2 minimami globalnymi;
                 % 3 - funkcja okresowa;
                 % 4 - funkcja bez minimum;
@@ -39,7 +41,7 @@ fToShow=testowanaFunkcja(WHICH_FUNCTION, xToShow, yToShow);
 surf(xToShow,yToShow,fToShow);
 xlabel('X axes');
 ylabel('Y axes');
-view(0,0);
+view(45,45);
 
 %% Inicjalizacja
 e=exp(1);
@@ -107,7 +109,7 @@ for t=1:ITERATIONS
     yPosition = yPosition+speedYAxis;
     % contp(t,:)=particlePosition;
     % contv(t,:)=speed;
-    pause(1);
+    pause(0.1);
     set(scatters(t),'Visible','off')
 end
 hold on 
